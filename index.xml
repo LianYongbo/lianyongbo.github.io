@@ -6,10 +6,32 @@
     <description>Recent content on L1anyX的博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-Hans</language>
-    <lastBuildDate>Thu, 23 Jul 2020 11:42:15 +0800</lastBuildDate>
+    <lastBuildDate>Sat, 25 Jul 2020 16:11:13 +0800</lastBuildDate>
     
 	<atom:link href="http://lianyongbo.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Maven和包管理</title>
+      <link>http://lianyongbo.github.io/posts/maven%E5%92%8C%E5%8C%85%E7%AE%A1%E7%90%86/</link>
+      <pubDate>Sat, 25 Jul 2020 16:11:13 +0800</pubDate>
+      
+      <guid>http://lianyongbo.github.io/posts/maven%E5%92%8C%E5%8C%85%E7%AE%A1%E7%90%86/</guid>
+      <description>Maven和包管理 传递性依赖：依赖的类还依赖了其他的类。
+JVM工作原理：执行类的字节码，在执行类的过程中遇到了新的类，执行新的类的字节码，直到执行完成。
+JVM遇到新的类去哪里找它：在Classpath中找到所需的类。
+Classpath工作原理：类似环境变量的查找，依次在Classpath提供的路径中寻找所需要的类。
+Classpath中同名不同版本jar包取舍规则
+ 距离项目近的被使用 在前引用的的被使用  因此，包管理的本质就是告诉JVM如何找到所需的第三方类库以及成功地解决包冲突问题。
+Maven中央仓库：几乎存储了这个世界上的所有的包。
+Maven本地仓库：默认位于~/.m2，Maven自动下载第三方包，把它们放在这里进行缓存。
+Maven把所有包都进行了“编号”，并约定版本只能向上升，不能修改已经发布的版本
+ &amp;lt;groupId&amp;gt;&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;&amp;lt;/artifactId&amp;gt; &amp;lt;version&amp;gt;&amp;lt;/version&amp;gt;  开发过程中遇到包冲突问题包括以下错误/异常
+ AbstractMethodError NoClassDefFoundError ClassNotFoundException LinkageError  如何查看当前项目使用的依赖
+ mvn dependency:tree Maven界面 pom.xml  如何解决包冲突问题
+ 在项目中直接引用冲突中要使用的包 在依赖中使用&amp;lt;exclusion&amp;gt;&amp;lt;/exclusion&amp;gt;属性把依赖的冲突包取消掉  依赖隔离&amp;lt;scope&amp;gt;&amp;lt;/scope&amp;gt;
+ compile：默认值，适用于所有阶段；会随着项目一起发布 test:只在测试时使用，用于编译和运行测试代码；不会随项目发布 provided：编译和测试时使用，该依赖在运行时由服务商提供；项目打包不包含 runtime：与compile相比没有编译 system：依赖不会从Maven仓库下载，在本地文件系统获取;&amp;lt;systempath&amp;gt;&amp;lt;/systempath&amp;gt;指定路径  </description>
+    </item>
     
     <item>
       <title>My First Post</title>

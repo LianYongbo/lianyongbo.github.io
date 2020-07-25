@@ -35,7 +35,7 @@
 <meta property="og:description" content="" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="http://lianyongbo.github.io/posts/" />
-<meta property="og:updated_time" content="2020-07-23T11:42:15+08:00" />
+<meta property="og:updated_time" content="2020-07-25T16:11:13+08:00" />
 <meta itemprop="name" content="Posts">
 <meta itemprop="description" content=""><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Posts"/>
@@ -96,6 +96,34 @@
   <article class="pa3 pa4-ns nested-copy-line-height nested-img">
     <section class="cf ph3 ph5-l pv3 pv4-l f4 tc-l center measure-wide lh-copy mid-gray"></section>
     <section class="flex-ns flex-wrap justify-around mt5">
+      
+        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="http://lianyongbo.github.io/posts/maven%E5%92%8C%E5%8C%85%E7%AE%A1%E7%90%86/" class="link black dim">
+        Maven和包管理
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      Maven和包管理 传递性依赖：依赖的类还依赖了其他的类。
+JVM工作原理：执行类的字节码，在执行类的过程中遇到了新的类，执行新的类的字节码，直到执行完成。
+JVM遇到新的类去哪里找它：在Classpath中找到所需的类。
+Classpath工作原理：类似环境变量的查找，依次在Classpath提供的路径中寻找所需要的类。
+Classpath中同名不同版本jar包取舍规则
+ 距离项目近的被使用 在前引用的的被使用  因此，包管理的本质就是告诉JVM如何找到所需的第三方类库以及成功地解决包冲突问题。
+Maven中央仓库：几乎存储了这个世界上的所有的包。
+Maven本地仓库：默认位于~/.m2，Maven自动下载第三方包，把它们放在这里进行缓存。
+Maven把所有包都进行了“编号”，并约定版本只能向上升，不能修改已经发布的版本
+ &lt;groupId&gt;&lt;/groupId&gt; &lt;artifactId&gt;&lt;/artifactId&gt; &lt;version&gt;&lt;/version&gt;  开发过程中遇到包冲突问题包括以下错误/异常
+ AbstractMethodError NoClassDefFoundError ClassNotFoundException LinkageError  如何查看当前项目使用的依赖
+ mvn dependency:tree Maven界面 pom.xml  如何解决包冲突问题
+ 在项目中直接引用冲突中要使用的包 在依赖中使用&lt;exclusion&gt;&lt;/exclusion&gt;属性把依赖的冲突包取消掉  依赖隔离&lt;scope&gt;&lt;/scope&gt;
+ compile：默认值，适用于所有阶段；会随着项目一起发布 test:只在测试时使用，用于编译和运行测试代码；不会随项目发布 provided：编译和测试时使用，该依赖在运行时由服务商提供；项目打包不包含 runtime：与compile相比没有编译 system：依赖不会从Maven仓库下载，在本地文件系统获取;&lt;systempath&gt;&lt;/systempath&gt;指定路径  
+    </div>
+  </div>
+</div>
+</div>
       
         <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
   <div class="bg-white mb3 pa4 gray overflow-hidden">
