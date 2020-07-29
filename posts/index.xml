@@ -6,10 +6,23 @@
     <description>Recent content in Posts on L1anyX的博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-Hans</language>
-    <lastBuildDate>Sat, 25 Jul 2020 16:11:13 +0800</lastBuildDate>
+    <lastBuildDate>Sat, 25 Jul 2020 18:08:44 +0800</lastBuildDate>
     
 	<atom:link href="http://lianyongbo.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Collection体系</title>
+      <link>http://lianyongbo.github.io/posts/collection%E4%BD%93%E7%B3%BB/</link>
+      <pubDate>Sat, 25 Jul 2020 18:08:44 +0800</pubDate>
+      
+      <guid>http://lianyongbo.github.io/posts/collection%E4%BD%93%E7%B3%BB/</guid>
+      <description>Collection体系 Java集合框架主要包含两种类型的容器，一种是集合（Collection），存储一个元素集合；一种是图（Map），存储键值对映射。
+Collection接口有3种子类型，List、Set、Queue；再下面是一些抽象类；最后是具体实现类，常用的有ArrayList、LinkedList、HashSet、LinkedHashSet、HashMap、LinkedHashMap。
+集合框架应包含
+ 接口：代表集合的抽象数据类型。定义多个接口，是为了以不同的方式操作集合对象。 实现（类）：集合接口的具体实现。本质上讲，是可重复使用的数据结构。 算法：实现集合接口的对象里的方法执行的一些有用的计算。这些算法被称为多态，相同的方法可以在相似的接口上有着不同的实现。  Collection Collection.java
+/** * The root interface in the &amp;lt;i&amp;gt;collection hierarchy&amp;lt;/i&amp;gt;. A collection * represents a group of objects, known as its &amp;lt;i&amp;gt;elements&amp;lt;/i&amp;gt;. Some * collections allow duplicate elements and others do not. Some are ordered * and others unordered. The JDK does not provide any &amp;lt;i&amp;gt;direct&amp;lt;/i&amp;gt; * implementations of this interface: it provides implementations of more * specific subinterfaces like &amp;lt;tt&amp;gt;Set&amp;lt;/tt&amp;gt; and &amp;lt;tt&amp;gt;List&amp;lt;/tt&amp;gt;.</description>
+    </item>
     
     <item>
       <title>Maven和包管理</title>

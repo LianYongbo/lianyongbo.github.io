@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>Collection体系 | L1anyX的博客</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="generator" content="Hugo 0.74.1" />
+    
+    
+      <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+    
+
+    
+    
+      <link href="/dist/css/app.4fc0b62e4b82c997bb0041217cd6b979.css" rel="stylesheet">
+    
+
+    
+
+    
+      
+
+    
+
+    
+    
+    <meta property="og:title" content="Collection体系" />
+<meta property="og:description" content="Collection体系 Java集合框架主要包含两种类型的容器，一种是集合（Collection），存储一个元素集合；一种是图（Map），存储键值对映射。
+Collection接口有3种子类型，List、Set、Queue；再下面是一些抽象类；最后是具体实现类，常用的有ArrayList、LinkedList、HashSet、LinkedHashSet、HashMap、LinkedHashMap。
+集合框架应包含
+ 接口：代表集合的抽象数据类型。定义多个接口，是为了以不同的方式操作集合对象。 实现（类）：集合接口的具体实现。本质上讲，是可重复使用的数据结构。 算法：实现集合接口的对象里的方法执行的一些有用的计算。这些算法被称为多态，相同的方法可以在相似的接口上有着不同的实现。  Collection Collection.java
+/** * The root interface in the &lt;i&gt;collection hierarchy&lt;/i&gt;. A collection * represents a group of objects, known as its &lt;i&gt;elements&lt;/i&gt;. Some * collections allow duplicate elements and others do not. Some are ordered * and others unordered. The JDK does not provide any &lt;i&gt;direct&lt;/i&gt; * implementations of this interface: it provides implementations of more * specific subinterfaces like &lt;tt&gt;Set&lt;/tt&gt; and &lt;tt&gt;List&lt;/tt&gt;." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://lianyongbo.github.io/posts/collection%E4%BD%93%E7%B3%BB/" />
+<meta property="article:published_time" content="2020-07-25T18:08:44+08:00" />
+<meta property="article:modified_time" content="2020-07-25T18:08:44+08:00" />
+<meta itemprop="name" content="Collection体系">
+<meta itemprop="description" content="Collection体系 Java集合框架主要包含两种类型的容器，一种是集合（Collection），存储一个元素集合；一种是图（Map），存储键值对映射。
+Collection接口有3种子类型，List、Set、Queue；再下面是一些抽象类；最后是具体实现类，常用的有ArrayList、LinkedList、HashSet、LinkedHashSet、HashMap、LinkedHashMap。
+集合框架应包含
+ 接口：代表集合的抽象数据类型。定义多个接口，是为了以不同的方式操作集合对象。 实现（类）：集合接口的具体实现。本质上讲，是可重复使用的数据结构。 算法：实现集合接口的对象里的方法执行的一些有用的计算。这些算法被称为多态，相同的方法可以在相似的接口上有着不同的实现。  Collection Collection.java
+/** * The root interface in the &lt;i&gt;collection hierarchy&lt;/i&gt;. A collection * represents a group of objects, known as its &lt;i&gt;elements&lt;/i&gt;. Some * collections allow duplicate elements and others do not. Some are ordered * and others unordered. The JDK does not provide any &lt;i&gt;direct&lt;/i&gt; * implementations of this interface: it provides implementations of more * specific subinterfaces like &lt;tt&gt;Set&lt;/tt&gt; and &lt;tt&gt;List&lt;/tt&gt;.">
+<meta itemprop="datePublished" content="2020-07-25T18:08:44&#43;08:00" />
+<meta itemprop="dateModified" content="2020-07-25T18:08:44&#43;08:00" />
+<meta itemprop="wordCount" content="1660">
+
+
+
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Collection体系"/>
+<meta name="twitter:description" content="Collection体系 Java集合框架主要包含两种类型的容器，一种是集合（Collection），存储一个元素集合；一种是图（Map），存储键值对映射。
+Collection接口有3种子类型，List、Set、Queue；再下面是一些抽象类；最后是具体实现类，常用的有ArrayList、LinkedList、HashSet、LinkedHashSet、HashMap、LinkedHashMap。
+集合框架应包含
+ 接口：代表集合的抽象数据类型。定义多个接口，是为了以不同的方式操作集合对象。 实现（类）：集合接口的具体实现。本质上讲，是可重复使用的数据结构。 算法：实现集合接口的对象里的方法执行的一些有用的计算。这些算法被称为多态，相同的方法可以在相似的接口上有着不同的实现。  Collection Collection.java
+/** * The root interface in the &lt;i&gt;collection hierarchy&lt;/i&gt;. A collection * represents a group of objects, known as its &lt;i&gt;elements&lt;/i&gt;. Some * collections allow duplicate elements and others do not. Some are ordered * and others unordered. The JDK does not provide any &lt;i&gt;direct&lt;/i&gt; * implementations of this interface: it provides implementations of more * specific subinterfaces like &lt;tt&gt;Set&lt;/tt&gt; and &lt;tt&gt;List&lt;/tt&gt;."/>
+
+	
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+   
+  
+
+  <header>
+    <div class="bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="/" class="f3 fw2 hover-white no-underline white-90 dib">
+      
+        L1anyX的博客
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
+  
+  <article class="flex-l flex-wrap justify-between mw8 center ph3">
+    <header class="mt4 w-100">
+      <aside class="instapaper_ignoref b helvetica tracked">
+          
+        POSTS
+      </aside>
+      
+
+
+
+
+  <div id="sharing" class="mt3">
+
+    
+    <a href="https://www.facebook.com/sharer.php?u=http://lianyongbo.github.io/posts/collection%E4%BD%93%E7%B3%BB/" class="facebook no-underline" aria-label="share on Facebook">
+      <svg height="32px"  style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M28.765,50.32h6.744V33.998h4.499l0.596-5.624h-5.095  l0.007-2.816c0-1.466,0.14-2.253,2.244-2.253h2.812V17.68h-4.5c-5.405,0-7.307,2.729-7.307,7.317v3.377h-3.369v5.625h3.369V50.32z   M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;"/></svg>
+
+    </a>
+
+    
+    
+    <a href="https://twitter.com/share?url=http://lianyongbo.github.io/posts/collection%E4%BD%93%E7%B3%BB/&amp;text=Collection%e4%bd%93%e7%b3%bb" class="twitter no-underline" aria-label="share on Twitter">
+      <svg height="32px"  style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M37.167,22.283c-2.619,0.953-4.274,3.411-4.086,6.101  l0.063,1.038l-1.048-0.127c-3.813-0.487-7.145-2.139-9.974-4.915l-1.383-1.377l-0.356,1.017c-0.754,2.267-0.272,4.661,1.299,6.271  c0.838,0.89,0.649,1.017-0.796,0.487c-0.503-0.169-0.943-0.296-0.985-0.233c-0.146,0.149,0.356,2.076,0.754,2.839  c0.545,1.06,1.655,2.097,2.871,2.712l1.027,0.487l-1.215,0.021c-1.173,0-1.215,0.021-1.089,0.467  c0.419,1.377,2.074,2.839,3.918,3.475l1.299,0.444l-1.131,0.678c-1.676,0.976-3.646,1.526-5.616,1.568  C19.775,43.256,19,43.341,19,43.405c0,0.211,2.557,1.397,4.044,1.864c4.463,1.377,9.765,0.783,13.746-1.568  c2.829-1.673,5.657-5,6.978-8.221c0.713-1.716,1.425-4.851,1.425-6.354c0-0.975,0.063-1.102,1.236-2.267  c0.692-0.678,1.341-1.419,1.467-1.631c0.21-0.403,0.188-0.403-0.88-0.043c-1.781,0.636-2.033,0.551-1.152-0.402  c0.649-0.678,1.425-1.907,1.425-2.267c0-0.063-0.314,0.042-0.671,0.233c-0.377,0.212-1.215,0.53-1.844,0.72l-1.131,0.361l-1.027-0.7  c-0.566-0.381-1.361-0.805-1.781-0.932C39.766,21.902,38.131,21.944,37.167,22.283z M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4  s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/></svg>
+
+    </a>
+
+    
+    <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=http://lianyongbo.github.io/posts/collection%E4%BD%93%E7%B3%BB/&amp;title=Collection%e4%bd%93%e7%b3%bb" class="linkedin no-underline" aria-label="share on LinkedIn">
+      <svg  height="32px"  style="enable-background:new 0 0 65 65;" version="1.1" viewBox="0 0 65 65" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <path d="M50.837,48.137V36.425c0-6.275-3.35-9.195-7.816-9.195  c-3.604,0-5.219,1.983-6.119,3.374V27.71h-6.79c0.09,1.917,0,20.427,0,20.427h6.79V36.729c0-0.609,0.044-1.219,0.224-1.655  c0.49-1.22,1.607-2.483,3.482-2.483c2.458,0,3.44,1.873,3.44,4.618v10.929H50.837z M22.959,24.922c2.367,0,3.842-1.57,3.842-3.531  c-0.044-2.003-1.475-3.528-3.797-3.528s-3.841,1.524-3.841,3.528c0,1.961,1.474,3.531,3.753,3.531H22.959z M34,64  C17.432,64,4,50.568,4,34C4,17.431,17.432,4,34,4s30,13.431,30,30C64,50.568,50.568,64,34,64z M26.354,48.137V27.71h-6.789v20.427  H26.354z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
+</svg>
+
+    </a>
+  </div>
+
+
+      <h1 class="f1 athelas mt3 mb1">Collection体系</h1>
+      
+      
+      <time class="f6 mv4 dib tracked" datetime="2020-07-25T18:08:44+08:00">July 25, 2020</time>
+
+      
+      
+    </header>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links nested-img mid-gray pr4-l w-two-thirds-l"><h1 id="collection体系">Collection体系</h1>
+<p>Java集合框架主要包含两种类型的容器，一种是<strong>集合（Collection）</strong>，存储一个元素集合；一种是<strong>图（Map）</strong>，存储键值对映射。</p>
+<p>Collection接口有3种子类型，List、Set、Queue；再下面是一些抽象类；最后是具体实现类，常用的有ArrayList、LinkedList、HashSet、LinkedHashSet、HashMap、LinkedHashMap。</p>
+<p>集合框架应包含</p>
+<ul>
+<li>接口：代表集合的抽象数据类型。定义多个接口，是为了以不同的方式操作集合对象。</li>
+<li>实现（类）：集合接口的具体实现。本质上讲，是可重复使用的数据结构。</li>
+<li>算法：实现集合接口的对象里的方法执行的一些有用的计算。这些算法被称为多态，相同的方法可以在相似的接口上有着不同的实现。</li>
+</ul>
+<h2 id="collection">Collection</h2>
+<p>Collection.java</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#f92672">/**</span>
+ <span style="color:#f92672">*</span> The root <span style="color:#66d9ef">interface</span> <span style="color:#a6e22e">in</span> the <span style="color:#f92672">&lt;</span>i<span style="color:#f92672">&gt;</span>collection hierarchy<span style="color:#f92672">&lt;/</span>i<span style="color:#f92672">&gt;.</span>  A collection
+ <span style="color:#f92672">*</span> represents a group of objects<span style="color:#f92672">,</span> known as its <span style="color:#f92672">&lt;</span>i<span style="color:#f92672">&gt;</span>elements<span style="color:#f92672">&lt;/</span>i<span style="color:#f92672">&gt;.</span>  Some
+ <span style="color:#f92672">*</span> collections allow duplicate elements and others <span style="color:#66d9ef">do</span> not<span style="color:#f92672">.</span>  Some are ordered
+ <span style="color:#f92672">*</span> and others unordered<span style="color:#f92672">.</span>  The JDK does not provide any <span style="color:#f92672">&lt;</span>i<span style="color:#f92672">&gt;</span>direct<span style="color:#f92672">&lt;/</span>i<span style="color:#f92672">&gt;</span>
+ <span style="color:#f92672">*</span> implementations of <span style="color:#66d9ef">this</span> interface<span style="color:#f92672">:</span> it provides implementations of more
+ <span style="color:#f92672">*</span> specific subinterfaces like <span style="color:#f92672">&lt;</span>tt<span style="color:#f92672">&gt;</span>Set<span style="color:#f92672">&lt;/</span>tt<span style="color:#f92672">&gt;</span> and <span style="color:#f92672">&lt;</span>tt<span style="color:#f92672">&gt;</span>List<span style="color:#f92672">&lt;/</span>tt<span style="color:#f92672">&gt;.</span>  This <span style="color:#66d9ef">interface</span>
+ <span style="color:#960050;background-color:#1e0010">* </span><span style="color:#a6e22e">is</span> typically used to pass collections around and manipulate them where
+ <span style="color:#f92672">*</span> maximum generality is desired<span style="color:#f92672">.</span>
+</code></pre></div><p>Collection是<strong>集合层次体系</strong>的根接口。一个集合代表一组对象，这些对象被称为<strong>元素</strong>。一些集合允许重复的元素，一些不允许；一些集合是有序的，一些是无序的。JDK不提供Collection的直接实现，提供类似<strong>Set</strong>、<strong>List</strong>的具体子接口实现。</p>
+<h2 id="list">List</h2>
+<p>ArrayList继承树</p>
+<p><img src="ArrayList%E7%BB%A7%E6%89%BF%E6%A0%91.png" alt="ArrayList继承树" title="ArrayList继承树"></p>
+<p>List.java</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#f92672">/**</span>
+ <span style="color:#f92672">*</span> An ordered <span style="color:#a6e22e">collection</span> <span style="color:#f92672">(</span>also known as a <span style="color:#f92672">&lt;</span>i<span style="color:#f92672">&gt;</span>sequence<span style="color:#f92672">&lt;/</span>i<span style="color:#f92672">&gt;).</span>  The user of <span style="color:#66d9ef">this</span>
+ <span style="color:#f92672">*</span> <span style="color:#66d9ef">interface</span> <span style="color:#a6e22e">has</span> precise control over where in the list each element is
+ <span style="color:#f92672">*</span> inserted<span style="color:#f92672">.</span>  The user can access elements by their integer <span style="color:#a6e22e">index</span> <span style="color:#f92672">(</span>position in
+ <span style="color:#f92672">*</span> the list<span style="color:#f92672">),</span> and search <span style="color:#66d9ef">for</span> elements in the list<span style="color:#f92672">.&lt;</span>p<span style="color:#f92672">&gt;</span>
+</code></pre></div><p>ArrayList.java</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#f92672">/**</span>
+ <span style="color:#f92672">*</span> Resizable<span style="color:#f92672">-</span>array implementation of the <span style="color:#f92672">&lt;</span>tt<span style="color:#f92672">&gt;</span>List<span style="color:#f92672">&lt;/</span>tt<span style="color:#f92672">&gt;</span> interface<span style="color:#f92672">.</span>  Implements
+ <span style="color:#f92672">*</span> all optional list operations<span style="color:#f92672">,</span> and permits all elements<span style="color:#f92672">,</span> including
+ <span style="color:#f92672">*</span> <span style="color:#f92672">&lt;</span>tt<span style="color:#f92672">&gt;</span><span style="color:#66d9ef">null</span><span style="color:#f92672">&lt;/</span>tt<span style="color:#f92672">&gt;.</span>  In addition to implementing the <span style="color:#f92672">&lt;</span>tt<span style="color:#f92672">&gt;</span>List<span style="color:#f92672">&lt;/</span>tt<span style="color:#f92672">&gt;</span> interface<span style="color:#f92672">,</span>
+ <span style="color:#f92672">*</span> <span style="color:#66d9ef">this</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">provides</span> methods to manipulate the size of the array that is
+ <span style="color:#f92672">*</span> used internally to store the list<span style="color:#f92672">.</span>  <span style="color:#f92672">(</span>This <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">is</span> roughly equivalent to
+ <span style="color:#f92672">*</span> <span style="color:#f92672">&lt;</span>tt<span style="color:#f92672">&gt;</span>Vector<span style="color:#f92672">&lt;/</span>tt<span style="color:#f92672">&gt;,</span> except that it is unsynchronized<span style="color:#f92672">.)</span>
+</code></pre></div><p>ArrayList实现了List<strong>可调整大小的数组</strong>。实现了所有可选的列表操作，并允许元素为null。除了实现List接口，ArrayList还实现了能够控制list集合大小的方法。</p>
+<p>常用的方法</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">szie<span style="color:#f92672">()</span>
+isEmpty<span style="color:#f92672">()</span>
+contains<span style="color:#f92672">()</span>
+stream<span style="color:#f92672">()</span>
+add<span style="color:#f92672">()</span>
+addAll<span style="color:#f92672">()</span>
+retainAll<span style="color:#f92672">()</span>
+clear<span style="color:#f92672">()</span>
+remove<span style="color:#f92672">()</span>
+removeAll<span style="color:#f92672">()</span>
+</code></pre></div><h3 id="arraylist如何实现长度可变的数组存储">ArrayList如何实现长度可变的数组存储</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">    <span style="color:#75715e">/**
+</span><span style="color:#75715e">     * The array buffer into which the elements of the ArrayList are stored.
+</span><span style="color:#75715e">     * The capacity of the ArrayList is the length of this array buffer. Any
+</span><span style="color:#75715e">     * empty ArrayList with elementData == DEFAULTCAPACITY_EMPTY_ELEMENTDATA
+</span><span style="color:#75715e">     * will be expanded to DEFAULT_CAPACITY when the first element is added.
+</span><span style="color:#75715e">     */</span>
+    <span style="color:#66d9ef">transient</span> Object<span style="color:#f92672">[]</span> elementData<span style="color:#f92672">;</span> <span style="color:#75715e">// non-private to simplify nested class access
+</span><span style="color:#75715e"></span>    
+    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">int</span> size<span style="color:#f92672">;</span>
+    
+    <span style="color:#75715e">/**
+</span><span style="color:#75715e">     * The maximum size of array to allocate.
+</span><span style="color:#75715e">     * Some VMs reserve some header words in an array.
+</span><span style="color:#75715e">     * Attempts to allocate larger arrays may result in
+</span><span style="color:#75715e">     * OutOfMemoryError: Requested array size exceeds VM limit
+</span><span style="color:#75715e">     */</span>
+    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">final</span> <span style="color:#66d9ef">int</span> MAX_ARRAY_SIZE <span style="color:#f92672">=</span> Integer<span style="color:#f92672">.</span><span style="color:#a6e22e">MAX_VALUE</span> <span style="color:#f92672">-</span> 8<span style="color:#f92672">;</span>
+
+    <span style="color:#75715e">/**
+</span><span style="color:#75715e">     * Shared empty array instance used for default sized empty instances. We
+</span><span style="color:#75715e">     * distinguish this from EMPTY_ELEMENTDATA to know how much to inflate when
+</span><span style="color:#75715e">     * first element is added.
+</span><span style="color:#75715e">     */</span>
+    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">final</span> Object<span style="color:#f92672">[]</span> DEFAULTCAPACITY_EMPTY_ELEMENTDATA <span style="color:#f92672">=</span> <span style="color:#f92672">{};</span>
+
+    <span style="color:#75715e">/**
+</span><span style="color:#75715e">     * Default initial capacity.
+</span><span style="color:#75715e">     */</span>
+    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">final</span> <span style="color:#66d9ef">int</span> DEFAULT_CAPACITY <span style="color:#f92672">=</span> 10<span style="color:#f92672">;</span>
+
+    <span style="color:#75715e">/**
+</span><span style="color:#75715e">     * Appends the specified element to the end of this list.
+</span><span style="color:#75715e">     *
+</span><span style="color:#75715e">     * @param e element to be appended to this list
+</span><span style="color:#75715e">     * @return &lt;tt&gt;true&lt;/tt&gt; (as specified by {@link Collection#add})
+</span><span style="color:#75715e">     */</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">boolean</span> <span style="color:#a6e22e">add</span><span style="color:#f92672">(</span>E e<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        ensureCapacityInternal<span style="color:#f92672">(</span>size <span style="color:#f92672">+</span> 1<span style="color:#f92672">);</span>  <span style="color:#75715e">// Increments modCount!!
+</span><span style="color:#75715e"></span>        elementData<span style="color:#f92672">[</span>size<span style="color:#f92672">++]</span> <span style="color:#f92672">=</span> e<span style="color:#f92672">;</span>
+        <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">true</span><span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">int</span> <span style="color:#a6e22e">calculateCapacity</span><span style="color:#f92672">(</span>Object<span style="color:#f92672">[]</span> elementData<span style="color:#f92672">,</span> <span style="color:#66d9ef">int</span> minCapacity<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>elementData <span style="color:#f92672">==</span> DEFAULTCAPACITY_EMPTY_ELEMENTDATA<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+            <span style="color:#66d9ef">return</span> Math<span style="color:#f92672">.</span><span style="color:#a6e22e">max</span><span style="color:#f92672">(</span>DEFAULT_CAPACITY<span style="color:#f92672">,</span> minCapacity<span style="color:#f92672">);</span>
+        <span style="color:#f92672">}</span>
+        <span style="color:#66d9ef">return</span> minCapacity<span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">ensureCapacityInternal</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> minCapacity<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        ensureExplicitCapacity<span style="color:#f92672">(</span>calculateCapacity<span style="color:#f92672">(</span>elementData<span style="color:#f92672">,</span> minCapacity<span style="color:#f92672">));</span>
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">ensureExplicitCapacity</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> minCapacity<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        modCount<span style="color:#f92672">++;</span>
+
+        <span style="color:#75715e">// overflow-conscious code
+</span><span style="color:#75715e"></span>        <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>minCapacity <span style="color:#f92672">-</span> elementData<span style="color:#f92672">.</span><span style="color:#a6e22e">length</span> <span style="color:#f92672">&gt;</span> 0<span style="color:#f92672">)</span>
+            grow<span style="color:#f92672">(</span>minCapacity<span style="color:#f92672">);</span>
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#75715e">/**
+</span><span style="color:#75715e">     * Increases the capacity to ensure that it can hold at least the
+</span><span style="color:#75715e">     * number of elements specified by the minimum capacity argument.
+</span><span style="color:#75715e">     *
+</span><span style="color:#75715e">     * @param minCapacity the desired minimum capacity
+</span><span style="color:#75715e">     */</span>
+    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">grow</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> minCapacity<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        <span style="color:#75715e">// overflow-conscious code
+</span><span style="color:#75715e"></span>        <span style="color:#66d9ef">int</span> oldCapacity <span style="color:#f92672">=</span> elementData<span style="color:#f92672">.</span><span style="color:#a6e22e">length</span><span style="color:#f92672">;</span>
+        <span style="color:#66d9ef">int</span> newCapacity <span style="color:#f92672">=</span> oldCapacity <span style="color:#f92672">+</span> <span style="color:#f92672">(</span>oldCapacity <span style="color:#f92672">&gt;&gt;</span> 1<span style="color:#f92672">);</span>
+        <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>newCapacity <span style="color:#f92672">-</span> minCapacity <span style="color:#f92672">&lt;</span> 0<span style="color:#f92672">)</span>
+            newCapacity <span style="color:#f92672">=</span> minCapacity<span style="color:#f92672">;</span>
+        <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>newCapacity <span style="color:#f92672">-</span> MAX_ARRAY_SIZE <span style="color:#f92672">&gt;</span> 0<span style="color:#f92672">)</span>
+            newCapacity <span style="color:#f92672">=</span> hugeCapacity<span style="color:#f92672">(</span>minCapacity<span style="color:#f92672">);</span>
+        <span style="color:#75715e">// minCapacity is usually close to size, so this is a win:
+</span><span style="color:#75715e"></span>        elementData <span style="color:#f92672">=</span> Arrays<span style="color:#f92672">.</span><span style="color:#a6e22e">copyOf</span><span style="color:#f92672">(</span>elementData<span style="color:#f92672">,</span> newCapacity<span style="color:#f92672">);</span>
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">int</span> <span style="color:#a6e22e">hugeCapacity</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> minCapacity<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>minCapacity <span style="color:#f92672">&lt;</span> 0<span style="color:#f92672">)</span> <span style="color:#75715e">// overflow
+</span><span style="color:#75715e"></span>            <span style="color:#66d9ef">throw</span> <span style="color:#66d9ef">new</span> OutOfMemoryError<span style="color:#f92672">();</span>
+        <span style="color:#66d9ef">return</span> <span style="color:#f92672">(</span>minCapacity <span style="color:#f92672">&gt;</span> MAX_ARRAY_SIZE<span style="color:#f92672">)</span> <span style="color:#f92672">?</span>
+            Integer<span style="color:#f92672">.</span><span style="color:#a6e22e">MAX_VALUE</span> <span style="color:#f92672">:</span>
+            MAX_ARRAY_SIZE<span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+</code></pre></div><p><code>elementData</code>是ArrayList存储元素的数组缓冲区；ArrayList的容量是<code>elementData</code>的长度。<code>elementData</code>初始是一个空的<code>Object[]</code>，在添加第一个元素时，ArrayList和<code>elementData</code>的<code>size</code>会变为默认容量10。在使用<code>add(e)</code>方法添加ArrayList元素时，当前<code>elementData</code>的<code>length</code>会和ArrayList的<code>size + 1</code>比较，如果<code>size + 1</code>大，也就是添加这个元素会出现溢出，那么调用<code>grow(minCapacity)</code>。</p>
+<p>在<code>grow(int minCapacity)</code>方法中，会把新的容量大小<code>newCapacity</code>设置为旧的容量大小的1.5倍，如果仍然无法满足，则将<code>newCapacity</code>设置为<code>size + 1</code>；继续检查已经设置好的<code>newCapacity</code>是否超过最大数组大小<code>MAX_ARRAY_SIZE</code>，这个值是<code>Integer.MAX_VALUE - 8</code>，如果超过了，需要调用<code>hugeCapacity(minCapacity)</code>重新设置<code>newCapacity</code>大小。最后克隆ArrayList得到相应的数组缓冲区<code>elementData</code>。</p>
+<p>在<code>hugeCapacity(int minCapacity)</code>方法中，检查<code>minCapacity</code>是否溢出，因为<code>minCapacity</code>是<code>int</code>类型，+1溢出后会为负值，如果溢出，抛出异常；没有溢出，根据情况选择<code>Integer.MAX_VALUE</code>或者<code>MAX_ARRAY_SIZE</code>作为<code>newCapacity</code>的大小。<del>这里是不是可以直接把<code>newCapacity</code>设置为<code>Integer.MAX_VALUE</code>，因为调用<code>hugeCapacity(int minCapacity)</code>的原因是<code>newCapacity - MAX_ARRAY_SIZE &gt; 0</code>。</del></p>
+<p><code>private static final int MAX_ARRAY_SIZE = Integer.MAX_VALUE - 8;</code>因为一些虚拟机在数组中会保留一些标题字，所以预留一些空间。</p>
+<h2 id="set">Set</h2>
+<p>HashSet继承树</p>
+<p><img src="HashSet%E7%BB%A7%E6%89%BF%E6%A0%91.png" alt="HashSet继承树" title="HashSet继承树"></p>
+<p>Set.java</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#f92672">/**</span>
+ <span style="color:#f92672">*</span> A collection that contains no duplicate elements<span style="color:#f92672">.</span>  More formally<span style="color:#f92672">,</span> sets
+ <span style="color:#f92672">*</span> contain no pair of elements <span style="color:#f92672">&lt;</span>code<span style="color:#f92672">&gt;</span>e1<span style="color:#f92672">&lt;/</span>code<span style="color:#f92672">&gt;</span> and <span style="color:#f92672">&lt;</span>code<span style="color:#f92672">&gt;</span>e2<span style="color:#f92672">&lt;/</span>code<span style="color:#f92672">&gt;</span> such that
+ <span style="color:#f92672">*</span> <span style="color:#f92672">&lt;</span>code<span style="color:#f92672">&gt;</span>e1<span style="color:#f92672">.</span><span style="color:#a6e22e">equals</span><span style="color:#f92672">(</span>e2<span style="color:#f92672">)&lt;/</span>code<span style="color:#f92672">&gt;,</span> and at most one <span style="color:#66d9ef">null</span> element<span style="color:#f92672">.</span>  As implied by
+ <span style="color:#f92672">*</span> its name<span style="color:#f92672">,</span> <span style="color:#66d9ef">this</span> <span style="color:#66d9ef">interface</span> <span style="color:#a6e22e">models</span> the mathematical <span style="color:#f92672">&lt;</span>i<span style="color:#f92672">&gt;</span>set<span style="color:#f92672">&lt;/</span>i<span style="color:#f92672">&gt;</span> abstraction<span style="color:#f92672">.</span>
+</code></pre></div><p>该接口是对<strong>数学集合</strong>抽象进行建模，最多包含一个null元素。</p>
+<p>HashSet.java</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#f92672">/**</span>
+ <span style="color:#f92672">*</span> This <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">implements</span> the <span style="color:#f92672">&lt;</span>tt<span style="color:#f92672">&gt;</span>Set<span style="color:#f92672">&lt;/</span>tt<span style="color:#f92672">&gt;</span> interface<span style="color:#f92672">,</span> backed by a hash table
+ <span style="color:#f92672">*</span> <span style="color:#f92672">(</span>actually a <span style="color:#f92672">&lt;</span>tt<span style="color:#f92672">&gt;</span>HashMap<span style="color:#f92672">&lt;/</span>tt<span style="color:#f92672">&gt;</span> instance<span style="color:#f92672">).</span>  It makes no guarantees as to the
+ <span style="color:#f92672">*</span> iteration order of the set<span style="color:#f92672">;</span> in particular<span style="color:#f92672">,</span> it does not guarantee that the
+ <span style="color:#f92672">*</span> order will remain constant over time<span style="color:#f92672">.</span>  This <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">permits</span> the <span style="color:#f92672">&lt;</span>tt<span style="color:#f92672">&gt;</span><span style="color:#66d9ef">null</span><span style="color:#f92672">&lt;/</span>tt<span style="color:#f92672">&gt;</span>
+ <span style="color:#f92672">*</span> element<span style="color:#f92672">.</span>
+</code></pre></div><p>HashSet实现了Set接口，由哈希表支持。HashSet不保证集合的迭代顺序，不能保证顺序随着时间的推一保持恒定，只允许一个元素为null。</p>
+<p>常用方法</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">add<span style="color:#f92672">()</span>
+clear<span style="color:#f92672">()</span>
+clone<span style="color:#f92672">()</span>
+contains<span style="color:#f92672">()</span>
+isEmpty<span style="color:#f92672">()</span>
+iterator<span style="color:#f92672">()</span>
+remove<span style="color:#f92672">()</span>
+size<span style="color:#f92672">()</span>
+</code></pre></div><p>LinkedHashSet.java</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#f92672">/**</span>
+ <span style="color:#f92672">*</span> <span style="color:#f92672">&lt;</span>p<span style="color:#f92672">&gt;</span>Hash table and linked list implementation of the <span style="color:#f92672">&lt;</span>tt<span style="color:#f92672">&gt;</span>Set<span style="color:#f92672">&lt;/</span>tt<span style="color:#f92672">&gt;</span> interface<span style="color:#f92672">,</span>
+ <span style="color:#f92672">*</span> with predictable iteration order<span style="color:#f92672">.</span>  This implementation differs from
+ <span style="color:#f92672">*</span> <span style="color:#f92672">&lt;</span>tt<span style="color:#f92672">&gt;</span>HashSet<span style="color:#f92672">&lt;/</span>tt<span style="color:#f92672">&gt;</span> in that it maintains a doubly<span style="color:#f92672">-</span>linked list running through
+ <span style="color:#f92672">*</span> all of its entries<span style="color:#f92672">.</span>  This linked list defines the iteration ordering<span style="color:#f92672">,</span>
+ <span style="color:#f92672">*</span> which is the order in which elements were inserted into the set
+ <span style="color:#f92672">*</span> <span style="color:#f92672">(&lt;</span>i<span style="color:#f92672">&gt;</span>insertion<span style="color:#f92672">-</span>order<span style="color:#f92672">&lt;/</span>i<span style="color:#f92672">&gt;).</span>  Note that insertion order is <span style="color:#f92672">&lt;</span>i<span style="color:#f92672">&gt;</span>not<span style="color:#f92672">&lt;/</span>i<span style="color:#f92672">&gt;</span> affected
+ <span style="color:#f92672">*</span> <span style="color:#66d9ef">if</span> an element is <span style="color:#f92672">&lt;</span>i<span style="color:#f92672">&gt;</span>re<span style="color:#f92672">-</span>inserted<span style="color:#f92672">&lt;/</span>i<span style="color:#f92672">&gt;</span> into the set<span style="color:#f92672">.</span>  <span style="color:#f92672">(</span>An element <span style="color:#f92672">&lt;</span>tt<span style="color:#f92672">&gt;</span>e<span style="color:#f92672">&lt;/</span>tt<span style="color:#f92672">&gt;</span>
+ <span style="color:#f92672">*</span> is reinserted into a set <span style="color:#f92672">&lt;</span>tt<span style="color:#f92672">&gt;</span>s<span style="color:#f92672">&lt;/</span>tt<span style="color:#f92672">&gt;</span> <span style="color:#66d9ef">if</span> <span style="color:#f92672">&lt;</span>tt<span style="color:#f92672">&gt;</span>s<span style="color:#f92672">.</span><span style="color:#a6e22e">add</span><span style="color:#f92672">(</span>e<span style="color:#f92672">)&lt;/</span>tt<span style="color:#f92672">&gt;</span> is invoked when
+ <span style="color:#f92672">*</span> <span style="color:#f92672">&lt;</span>tt<span style="color:#f92672">&gt;</span>s<span style="color:#f92672">.</span><span style="color:#a6e22e">contains</span><span style="color:#f92672">(</span>e<span style="color:#f92672">)&lt;/</span>tt<span style="color:#f92672">&gt;</span> would <span style="color:#66d9ef">return</span> <span style="color:#f92672">&lt;</span>tt<span style="color:#f92672">&gt;</span><span style="color:#66d9ef">true</span><span style="color:#f92672">&lt;/</span>tt<span style="color:#f92672">&gt;</span> immediately prior to
+ <span style="color:#f92672">*</span> the invocation<span style="color:#f92672">.)</span>
+</code></pre></div><p>LinkedHashSet是Set接口的哈希表和链表实现，迭代的顺序是可预测的。与HashSet不同在于LinkedHashSet维护了一个双向链表，这个链表定义了迭代顺序，即插入顺序。</p>
+<p>常用方法</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">spliterator<span style="color:#f92672">()</span>
+</code></pre></div><p>TreeSet.java</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#f92672">/**</span>
+ <span style="color:#f92672">*</span> A <span style="color:#f92672">{</span><span style="color:#a6e22e">@link</span> NavigableSet<span style="color:#f92672">}</span> implementation based on a <span style="color:#f92672">{</span><span style="color:#a6e22e">@link</span> TreeMap<span style="color:#f92672">}.</span>
+ <span style="color:#f92672">*</span> The elements are ordered using their <span style="color:#f92672">{</span><span style="color:#a6e22e">@linkplain</span> Comparable natural
+ <span style="color:#f92672">*</span> ordering<span style="color:#f92672">},</span> or by a <span style="color:#f92672">{</span><span style="color:#a6e22e">@link</span> Comparator<span style="color:#f92672">}</span> provided at set creation
+ <span style="color:#f92672">*</span> time<span style="color:#f92672">,</span> depending on which constructor is used<span style="color:#f92672">.</span>
+</code></pre></div><p>TreeSet使用了红黑树的数据结构，其中的元素可以根据Comparator约定的规则进行排序。</p>
+<p>常用方法</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">comparator<span style="color:#f92672">()</span>
+</code></pre></div><h2 id="queue">Queue</h2>
+<p>Queue继承树</p>
+<p><img src="Queue%E7%BB%A7%E6%89%BF%E6%A0%91.png" alt="Queue继承树" title="Queue继承树"></p>
+<p>Queue.java</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#f92672">/**</span>
+ <span style="color:#f92672">*</span> A collection designed <span style="color:#66d9ef">for</span> holding elements prior to processing<span style="color:#f92672">.</span>
+ <span style="color:#f92672">*</span> Besides basic <span style="color:#f92672">{</span><span style="color:#a6e22e">@link</span> java<span style="color:#f92672">.</span><span style="color:#a6e22e">util</span><span style="color:#f92672">.</span><span style="color:#a6e22e">Collection</span> Collection<span style="color:#f92672">}</span> operations<span style="color:#f92672">,</span>
+ <span style="color:#f92672">*</span> queues provide additional insertion<span style="color:#f92672">,</span> extraction<span style="color:#f92672">,</span> and inspection
+ <span style="color:#f92672">*</span> operations<span style="color:#f92672">.</span>  Each of these methods exists in two forms<span style="color:#f92672">:</span> one <span style="color:#66d9ef">throws</span>
+ <span style="color:#f92672">*</span> an exception <span style="color:#66d9ef">if</span> the operation fails<span style="color:#f92672">,</span> the other returns a special
+ <span style="color:#f92672">*</span> value <span style="color:#f92672">(</span>either <span style="color:#f92672">{</span><span style="color:#a6e22e">@code</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">}</span> or <span style="color:#f92672">{</span><span style="color:#a6e22e">@code</span> <span style="color:#66d9ef">false</span><span style="color:#f92672">},</span> depending on the
+ <span style="color:#f92672">*</span> operation<span style="color:#f92672">).</span>  The latter form of the insert operation is designed
+ <span style="color:#f92672">*</span> specifically <span style="color:#66d9ef">for</span> use with capacity<span style="color:#f92672">-</span>restricted <span style="color:#f92672">{</span><span style="color:#a6e22e">@code</span> Queue<span style="color:#f92672">}</span>
+ <span style="color:#f92672">*</span> implementations<span style="color:#f92672">;</span> in most implementations<span style="color:#f92672">,</span> insert operations cannot
+ <span style="color:#f92672">*</span> fail<span style="color:#f92672">.</span>
+</code></pre></div><p>Queue被设计用来处理之前保存元素的集合。除了基本的Collection操作之外，Queue还提供了其他的插入、提取、检查操作。这些操作方法都以两种方式存在：一种在操作失败时引发异常，另一种返回特殊值null或者false。</p>
+<p>常用方法</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">add<span style="color:#f92672">()</span>
+element<span style="color:#f92672">()</span>
+offer<span style="color:#f92672">()</span>
+remove<span style="color:#f92672">()</span>
+poll<span style="color:#f92672">()</span>
+peek<span style="color:#f92672">()</span>
+</code></pre></div><h2 id="map">Map</h2>
+<p>HashMap继承树</p>
+<p><img src="HashMap%E7%BB%A7%E6%89%BF%E6%A0%91.png" alt="HashMap继承树" title="HashMap继承树"></p>
+<p>Map.java</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#f92672">/**</span>
+ <span style="color:#f92672">*</span> An object that maps keys to values<span style="color:#f92672">.</span>  A map cannot contain duplicate keys<span style="color:#f92672">;</span>
+ <span style="color:#f92672">*</span> each key can map to at most one value<span style="color:#f92672">.</span>
+</code></pre></div><p>Map种的元素是将键映射到值的对象，键不能重复，每个键最多可以映射一个值。</p>
+<p>HashMap.java</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#f92672">/**</span>
+ <span style="color:#f92672">*</span> Hash table based implementation of the <span style="color:#f92672">&lt;</span>tt<span style="color:#f92672">&gt;</span>Map<span style="color:#f92672">&lt;/</span>tt<span style="color:#f92672">&gt;</span> interface<span style="color:#f92672">.</span>  This
+ <span style="color:#f92672">*</span> implementation provides all of the optional map operations<span style="color:#f92672">,</span> and permits
+ <span style="color:#f92672">*</span> <span style="color:#f92672">&lt;</span>tt<span style="color:#f92672">&gt;</span><span style="color:#66d9ef">null</span><span style="color:#f92672">&lt;/</span>tt<span style="color:#f92672">&gt;</span> values and the <span style="color:#f92672">&lt;</span>tt<span style="color:#f92672">&gt;</span><span style="color:#66d9ef">null</span><span style="color:#f92672">&lt;/</span>tt<span style="color:#f92672">&gt;</span> key<span style="color:#f92672">.</span>  <span style="color:#f92672">(</span>The <span style="color:#f92672">&lt;</span>tt<span style="color:#f92672">&gt;</span>HashMap<span style="color:#f92672">&lt;/</span>tt<span style="color:#f92672">&gt;</span>
+ <span style="color:#f92672">*</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">is</span> roughly equivalent to <span style="color:#f92672">&lt;</span>tt<span style="color:#f92672">&gt;</span>Hashtable<span style="color:#f92672">&lt;/</span>tt<span style="color:#f92672">&gt;,</span> except that it is
+ <span style="color:#f92672">*</span> unsynchronized and permits nulls<span style="color:#f92672">.)</span>  This <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">makes</span> no guarantees as to
+ <span style="color:#f92672">*</span> the order of the map<span style="color:#f92672">;</span> in particular<span style="color:#f92672">,</span> it does not guarantee that the order
+ <span style="color:#f92672">*</span> will remain constant over time<span style="color:#f92672">.</span>
+</code></pre></div><p>HashMap是Map接口基于哈希表的实现，允许null值和null键；HashMap不保证映射的顺序，不能保证顺序随着时间的推一保持恒定。</p>
+<p>常用方法</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">put<span style="color:#f92672">()</span>
+capacity<span style="color:#f92672">()</span>
+clear<span style="color:#f92672">()</span>
+clone<span style="color:#f92672">()</span>
+size<span style="color:#f92672">()</span>
+get<span style="color:#f92672">()</span>
+entryset<span style="color:#f92672">()</span>
+</code></pre></div><h3 id="hashmap如何实现扩容">HashMap如何实现扩容</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">    <span style="color:#75715e">/**
+</span><span style="color:#75715e">     * Associates the specified value with the specified key in this map.
+</span><span style="color:#75715e">     * If the map previously contained a mapping for the key, the old
+</span><span style="color:#75715e">     * value is replaced.
+</span><span style="color:#75715e">     *
+</span><span style="color:#75715e">     * @param key key with which the specified value is to be associated
+</span><span style="color:#75715e">     * @param value value to be associated with the specified key
+</span><span style="color:#75715e">     * @return the previous value associated with &lt;tt&gt;key&lt;/tt&gt;, or
+</span><span style="color:#75715e">     *         &lt;tt&gt;null&lt;/tt&gt; if there was no mapping for &lt;tt&gt;key&lt;/tt&gt;.
+</span><span style="color:#75715e">     *         (A &lt;tt&gt;null&lt;/tt&gt; return can also indicate that the map
+</span><span style="color:#75715e">     *         previously associated &lt;tt&gt;null&lt;/tt&gt; with &lt;tt&gt;key&lt;/tt&gt;.)
+</span><span style="color:#75715e">     */</span>
+    <span style="color:#66d9ef">public</span> V <span style="color:#a6e22e">put</span><span style="color:#f92672">(</span>K key<span style="color:#f92672">,</span> V value<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">return</span> putVal<span style="color:#f92672">(</span>hash<span style="color:#f92672">(</span>key<span style="color:#f92672">),</span> key<span style="color:#f92672">,</span> value<span style="color:#f92672">,</span> <span style="color:#66d9ef">false</span><span style="color:#f92672">,</span> <span style="color:#66d9ef">true</span><span style="color:#f92672">);</span>
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#75715e">/**
+</span><span style="color:#75715e">     * The load factor for the hash table.
+</span><span style="color:#75715e">     *
+</span><span style="color:#75715e">     * @serial
+</span><span style="color:#75715e">     */</span>
+    <span style="color:#66d9ef">final</span> <span style="color:#66d9ef">float</span> loadFactor<span style="color:#f92672">;</span>
+
+    <span style="color:#75715e">/**
+</span><span style="color:#75715e">     * The load factor used when none specified in constructor.
+</span><span style="color:#75715e">     */</span>
+    <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">final</span> <span style="color:#66d9ef">float</span> DEFAULT_LOAD_FACTOR <span style="color:#f92672">=</span> 0<span style="color:#f92672">.</span><span style="color:#a6e22e">75f</span><span style="color:#f92672">;</span>
+
+    <span style="color:#75715e">/**
+</span><span style="color:#75715e">     * Constructs an empty &lt;tt&gt;HashMap&lt;/tt&gt; with the default initial capacity
+</span><span style="color:#75715e">     * (16) and the default load factor (0.75).
+</span><span style="color:#75715e">     */</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#a6e22e">HashMap</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">loadFactor</span> <span style="color:#f92672">=</span> DEFAULT_LOAD_FACTOR<span style="color:#f92672">;</span> <span style="color:#75715e">// all other fields defaulted
+</span><span style="color:#75715e"></span>    <span style="color:#f92672">}</span>
+
+    <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">final</span> <span style="color:#66d9ef">int</span> <span style="color:#a6e22e">hash</span><span style="color:#f92672">(</span>Object key<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">int</span> h<span style="color:#f92672">;</span>
+        <span style="color:#66d9ef">return</span> <span style="color:#f92672">(</span>key <span style="color:#f92672">==</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">)</span> <span style="color:#f92672">?</span> 0 <span style="color:#f92672">:</span> <span style="color:#f92672">(</span>h <span style="color:#f92672">=</span> key<span style="color:#f92672">.</span><span style="color:#a6e22e">hashCode</span><span style="color:#f92672">())</span> <span style="color:#f92672">^</span> <span style="color:#f92672">(</span>h <span style="color:#f92672">&gt;&gt;&gt;</span> 16<span style="color:#f92672">);</span>
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#75715e">/**
+</span><span style="color:#75715e">     * Implements Map.put and related methods.
+</span><span style="color:#75715e">     *
+</span><span style="color:#75715e">     * @param hash hash for key
+</span><span style="color:#75715e">     * @param key the key
+</span><span style="color:#75715e">     * @param value the value to put
+</span><span style="color:#75715e">     * @param onlyIfAbsent if true, don&#39;t change existing value
+</span><span style="color:#75715e">     * @param evict if false, the table is in creation mode.
+</span><span style="color:#75715e">     * @return previous value, or null if none
+</span><span style="color:#75715e">     */</span>
+    <span style="color:#66d9ef">final</span> V <span style="color:#a6e22e">putVal</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> hash<span style="color:#f92672">,</span> K key<span style="color:#f92672">,</span> V value<span style="color:#f92672">,</span> <span style="color:#66d9ef">boolean</span> onlyIfAbsent<span style="color:#f92672">,</span>
+                   <span style="color:#66d9ef">boolean</span> evict<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        Node<span style="color:#f92672">&lt;</span>K<span style="color:#f92672">,</span>V<span style="color:#f92672">&gt;[]</span> tab<span style="color:#f92672">;</span> Node<span style="color:#f92672">&lt;</span>K<span style="color:#f92672">,</span>V<span style="color:#f92672">&gt;</span> p<span style="color:#f92672">;</span> <span style="color:#66d9ef">int</span> n<span style="color:#f92672">,</span> i<span style="color:#f92672">;</span>
+        <span style="color:#75715e">//...
+</span><span style="color:#75715e"></span>        <span style="color:#f92672">++</span>modCount<span style="color:#f92672">;</span>
+        <span style="color:#66d9ef">if</span> <span style="color:#f92672">(++</span>size <span style="color:#f92672">&gt;</span> threshold<span style="color:#f92672">)</span>
+            resize<span style="color:#f92672">();</span>
+        afterNodeInsertion<span style="color:#f92672">(</span>evict<span style="color:#f92672">);</span>
+        <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#66d9ef">final</span> Node<span style="color:#f92672">&lt;</span>K<span style="color:#f92672">,</span>V<span style="color:#f92672">&gt;[]</span> <span style="color:#a6e22e">resize</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+        Node<span style="color:#f92672">&lt;</span>K<span style="color:#f92672">,</span>V<span style="color:#f92672">&gt;[]</span> oldTab <span style="color:#f92672">=</span> table<span style="color:#f92672">;</span>
+        <span style="color:#66d9ef">int</span> oldCap <span style="color:#f92672">=</span> <span style="color:#f92672">(</span>oldTab <span style="color:#f92672">==</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">)</span> <span style="color:#f92672">?</span> 0 <span style="color:#f92672">:</span> oldTab<span style="color:#f92672">.</span><span style="color:#a6e22e">length</span><span style="color:#f92672">;</span>
+        <span style="color:#66d9ef">int</span> oldThr <span style="color:#f92672">=</span> threshold<span style="color:#f92672">;</span>
+        <span style="color:#66d9ef">int</span> newCap<span style="color:#f92672">,</span> newThr <span style="color:#f92672">=</span> 0<span style="color:#f92672">;</span>
+        <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>oldCap <span style="color:#f92672">&gt;</span> 0<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+            <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>oldCap <span style="color:#f92672">&gt;=</span> MAXIMUM_CAPACITY<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+                threshold <span style="color:#f92672">=</span> Integer<span style="color:#f92672">.</span><span style="color:#a6e22e">MAX_VALUE</span><span style="color:#f92672">;</span>
+                <span style="color:#66d9ef">return</span> oldTab<span style="color:#f92672">;</span>
+            <span style="color:#f92672">}</span>
+            <span style="color:#66d9ef">else</span> <span style="color:#66d9ef">if</span> <span style="color:#f92672">((</span>newCap <span style="color:#f92672">=</span> oldCap <span style="color:#f92672">&lt;&lt;</span> 1<span style="color:#f92672">)</span> <span style="color:#f92672">&lt;</span> MAXIMUM_CAPACITY <span style="color:#f92672">&amp;&amp;</span>
+                     oldCap <span style="color:#f92672">&gt;=</span> DEFAULT_INITIAL_CAPACITY<span style="color:#f92672">)</span>
+                newThr <span style="color:#f92672">=</span> oldThr <span style="color:#f92672">&lt;&lt;</span> 1<span style="color:#f92672">;</span> <span style="color:#75715e">// double threshold
+</span><span style="color:#75715e"></span>        <span style="color:#f92672">}</span>
+        <span style="color:#66d9ef">else</span> <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>oldThr <span style="color:#f92672">&gt;</span> 0<span style="color:#f92672">)</span> <span style="color:#75715e">// initial capacity was placed in threshold
+</span><span style="color:#75715e"></span>            newCap <span style="color:#f92672">=</span> oldThr<span style="color:#f92672">;</span>
+        <span style="color:#66d9ef">else</span> <span style="color:#f92672">{</span>               <span style="color:#75715e">// zero initial threshold signifies using defaults
+</span><span style="color:#75715e"></span>            newCap <span style="color:#f92672">=</span> DEFAULT_INITIAL_CAPACITY<span style="color:#f92672">;</span>
+            newThr <span style="color:#f92672">=</span> <span style="color:#f92672">(</span><span style="color:#66d9ef">int</span><span style="color:#f92672">)(</span>DEFAULT_LOAD_FACTOR <span style="color:#f92672">*</span> DEFAULT_INITIAL_CAPACITY<span style="color:#f92672">);</span>
+        <span style="color:#f92672">}</span>
+        <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>newThr <span style="color:#f92672">==</span> 0<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+            <span style="color:#66d9ef">float</span> ft <span style="color:#f92672">=</span> <span style="color:#f92672">(</span><span style="color:#66d9ef">float</span><span style="color:#f92672">)</span>newCap <span style="color:#f92672">*</span> loadFactor<span style="color:#f92672">;</span>
+            newThr <span style="color:#f92672">=</span> <span style="color:#f92672">(</span>newCap <span style="color:#f92672">&lt;</span> MAXIMUM_CAPACITY <span style="color:#f92672">&amp;&amp;</span> ft <span style="color:#f92672">&lt;</span> <span style="color:#f92672">(</span><span style="color:#66d9ef">float</span><span style="color:#f92672">)</span>MAXIMUM_CAPACITY <span style="color:#f92672">?</span>
+                      <span style="color:#f92672">(</span><span style="color:#66d9ef">int</span><span style="color:#f92672">)</span>ft <span style="color:#f92672">:</span> Integer<span style="color:#f92672">.</span><span style="color:#a6e22e">MAX_VALUE</span><span style="color:#f92672">);</span>
+        <span style="color:#f92672">}</span>
+        threshold <span style="color:#f92672">=</span> newThr<span style="color:#f92672">;</span>
+        <span style="color:#a6e22e">@SuppressWarnings</span><span style="color:#f92672">({</span><span style="color:#e6db74">&#34;rawtypes&#34;</span><span style="color:#f92672">,</span><span style="color:#e6db74">&#34;unchecked&#34;</span><span style="color:#f92672">})</span>
+        Node<span style="color:#f92672">&lt;</span>K<span style="color:#f92672">,</span>V<span style="color:#f92672">&gt;[]</span> newTab <span style="color:#f92672">=</span> <span style="color:#f92672">(</span>Node<span style="color:#f92672">&lt;</span>K<span style="color:#f92672">,</span>V<span style="color:#f92672">&gt;[])</span><span style="color:#66d9ef">new</span> Node<span style="color:#f92672">[</span>newCap<span style="color:#f92672">];</span>
+        table <span style="color:#f92672">=</span> newTab<span style="color:#f92672">;</span>
+        <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>oldTab <span style="color:#f92672">!=</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+            <span style="color:#66d9ef">for</span> <span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> j <span style="color:#f92672">=</span> 0<span style="color:#f92672">;</span> j <span style="color:#f92672">&lt;</span> oldCap<span style="color:#f92672">;</span> <span style="color:#f92672">++</span>j<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+                Node<span style="color:#f92672">&lt;</span>K<span style="color:#f92672">,</span>V<span style="color:#f92672">&gt;</span> e<span style="color:#f92672">;</span>
+                <span style="color:#66d9ef">if</span> <span style="color:#f92672">((</span>e <span style="color:#f92672">=</span> oldTab<span style="color:#f92672">[</span>j<span style="color:#f92672">])</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+                    oldTab<span style="color:#f92672">[</span>j<span style="color:#f92672">]</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">;</span>
+                    <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>e<span style="color:#f92672">.</span><span style="color:#a6e22e">next</span> <span style="color:#f92672">==</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">)</span>
+                        newTab<span style="color:#f92672">[</span>e<span style="color:#f92672">.</span><span style="color:#a6e22e">hash</span> <span style="color:#f92672">&amp;</span> <span style="color:#f92672">(</span>newCap <span style="color:#f92672">-</span> 1<span style="color:#f92672">)]</span> <span style="color:#f92672">=</span> e<span style="color:#f92672">;</span>
+                    <span style="color:#66d9ef">else</span> <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>e <span style="color:#66d9ef">instanceof</span> TreeNode<span style="color:#f92672">)</span>
+                        <span style="color:#f92672">((</span>TreeNode<span style="color:#f92672">&lt;</span>K<span style="color:#f92672">,</span>V<span style="color:#f92672">&gt;)</span>e<span style="color:#f92672">).</span><span style="color:#a6e22e">split</span><span style="color:#f92672">(</span><span style="color:#66d9ef">this</span><span style="color:#f92672">,</span> newTab<span style="color:#f92672">,</span> j<span style="color:#f92672">,</span> oldCap<span style="color:#f92672">);</span>
+                    <span style="color:#66d9ef">else</span> <span style="color:#f92672">{</span> <span style="color:#75715e">// preserve order
+</span><span style="color:#75715e"></span>                        Node<span style="color:#f92672">&lt;</span>K<span style="color:#f92672">,</span>V<span style="color:#f92672">&gt;</span> loHead <span style="color:#f92672">=</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">,</span> loTail <span style="color:#f92672">=</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">;</span>
+                        Node<span style="color:#f92672">&lt;</span>K<span style="color:#f92672">,</span>V<span style="color:#f92672">&gt;</span> hiHead <span style="color:#f92672">=</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">,</span> hiTail <span style="color:#f92672">=</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">;</span>
+                        Node<span style="color:#f92672">&lt;</span>K<span style="color:#f92672">,</span>V<span style="color:#f92672">&gt;</span> next<span style="color:#f92672">;</span>
+                        <span style="color:#66d9ef">do</span> <span style="color:#f92672">{</span>
+                            next <span style="color:#f92672">=</span> e<span style="color:#f92672">.</span><span style="color:#a6e22e">next</span><span style="color:#f92672">;</span>
+                            <span style="color:#66d9ef">if</span> <span style="color:#f92672">((</span>e<span style="color:#f92672">.</span><span style="color:#a6e22e">hash</span> <span style="color:#f92672">&amp;</span> oldCap<span style="color:#f92672">)</span> <span style="color:#f92672">==</span> 0<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+                                <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>loTail <span style="color:#f92672">==</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">)</span>
+                                    loHead <span style="color:#f92672">=</span> e<span style="color:#f92672">;</span>
+                                <span style="color:#66d9ef">else</span>
+                                    loTail<span style="color:#f92672">.</span><span style="color:#a6e22e">next</span> <span style="color:#f92672">=</span> e<span style="color:#f92672">;</span>
+                                loTail <span style="color:#f92672">=</span> e<span style="color:#f92672">;</span>
+                            <span style="color:#f92672">}</span>
+                            <span style="color:#66d9ef">else</span> <span style="color:#f92672">{</span>
+                                <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>hiTail <span style="color:#f92672">==</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">)</span>
+                                    hiHead <span style="color:#f92672">=</span> e<span style="color:#f92672">;</span>
+                                <span style="color:#66d9ef">else</span>
+                                    hiTail<span style="color:#f92672">.</span><span style="color:#a6e22e">next</span> <span style="color:#f92672">=</span> e<span style="color:#f92672">;</span>
+                                hiTail <span style="color:#f92672">=</span> e<span style="color:#f92672">;</span>
+                            <span style="color:#f92672">}</span>
+                        <span style="color:#f92672">}</span> <span style="color:#66d9ef">while</span> <span style="color:#f92672">((</span>e <span style="color:#f92672">=</span> next<span style="color:#f92672">)</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">);</span>
+                        <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>loTail <span style="color:#f92672">!=</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+                            loTail<span style="color:#f92672">.</span><span style="color:#a6e22e">next</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">;</span>
+                            newTab<span style="color:#f92672">[</span>j<span style="color:#f92672">]</span> <span style="color:#f92672">=</span> loHead<span style="color:#f92672">;</span>
+                        <span style="color:#f92672">}</span>
+                        <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>hiTail <span style="color:#f92672">!=</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+                            hiTail<span style="color:#f92672">.</span><span style="color:#a6e22e">next</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">;</span>
+                            newTab<span style="color:#f92672">[</span>j <span style="color:#f92672">+</span> oldCap<span style="color:#f92672">]</span> <span style="color:#f92672">=</span> hiHead<span style="color:#f92672">;</span>
+                        <span style="color:#f92672">}</span>
+                    <span style="color:#f92672">}</span>
+                <span style="color:#f92672">}</span>
+            <span style="color:#f92672">}</span>
+        <span style="color:#f92672">}</span>
+        <span style="color:#66d9ef">return</span> newTab<span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+</code></pre></div><p>HashMap通过<code>resize()</code>进行扩容。哈希算法是一个单向的映射，从任意对象映射到一个整数的HashCode上，且同一个对象必须始终返回相同的HashCode，一个HashCode就是一个哈希桶，一个哈希桶对应了多个对象。这就意味着，多个对象会产生碰撞，当一个哈希桶中的元素过多时，查询效率会降低，这就需要扩容。扩容意味着增加哈希桶，也必然导致有些元素需要重新计算其属于哪个哈希桶。<code>resize()</code>实现了这个过程。重新计算元素的新位置是很费时的，所以我们在初始化HashMap时，可以对将来使用的元素个数进行估计，根据**数组大小（哈希桶个数）* <code>loadFactor</code>（负载因子）**来确定HashMap的大小。在初始化HashMap的时候，数组大小为16，<code>loadFactor</code>初始化为0.75。</p>
+<p>HashMap在java7后使用红黑树来解决Hash桶中的碰撞问题，以提高性能。</p>
+<h3 id="hashmap在多线程环境下的安全问题">HashMap在多线程环境下的安全问题</h3>
+<ul>
+<li>如果有两个线程同时调用<code>put()</code>，thread1在计算得到元素A哈希值后，获取到了相应哈希桶的链表头结点，时间片用完了；此时，thread2在计算得到元素B哈希值后，成功地插入了元素B。如果元素A和元素B的哈希值相同，那么tread1重新调度后，仍然使用的是旧的链表头结点，那么就会把元素B覆盖掉，造成数据不一致。</li>
+<li>如果有两个线程同时调用了<code>resize()</code>，在thread1计算元素A的新位置时，时间片用完了；thread2完成了<code>resize()</code>的操作。如果元素A和元素B在<code>resize()</code>之前的顺序是A的next是B，在<code>resize()</code>之后的顺序是元素B的next是元素A，那么thread1重新调度后，对元素A进行重新计算其HashCode，然后计算元素A的next也就是B的HashCode，会出现元素A和元素B形成了一个闭环，在get的时候，会出现死循环。</li>
+</ul>
+<ul class="pa0">
+  
+</ul>
+<div class="mt6 instapaper_ignoref">
+      
+      
+      </div>
+    </div>
+
+    <aside class="w-30-l mt6-l">
+
+
+
+
+</aside>
+
+  </article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="http://lianyongbo.github.io/" >
+    &copy;  L1anyX的博客 2020 
+  </a>
+    <div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+  </div>
+</footer>
+
+    
+
+  <script src="/dist/js/app.3fc0f988d21662902933.js"></script>
+
+
+  </body>
+</html>
