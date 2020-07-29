@@ -173,7 +173,7 @@ Collection接口有3种子类型，List、Set、Queue；再下面是一些抽象
 </code></pre></div><p>Collection是<strong>集合层次体系</strong>的根接口。一个集合代表一组对象，这些对象被称为<strong>元素</strong>。一些集合允许重复的元素，一些不允许；一些集合是有序的，一些是无序的。JDK不提供Collection的直接实现，提供类似<strong>Set</strong>、<strong>List</strong>的具体子接口实现。</p>
 <h2 id="list">List</h2>
 <p>ArrayList继承树</p>
-<p><img src="ArrayList%E7%BB%A7%E6%89%BF%E6%A0%91.png" alt="ArrayList继承树" title="ArrayList继承树"></p>
+<p><img src="../ArrayList%E7%BB%A7%E6%89%BF%E6%A0%91.png" alt="ArrayList继承树" title="ArrayList继承树"></p>
 <p>List.java</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#f92672">/**</span>
  <span style="color:#f92672">*</span> An ordered <span style="color:#a6e22e">collection</span> <span style="color:#f92672">(</span>also known as a <span style="color:#f92672">&lt;</span>i<span style="color:#f92672">&gt;</span>sequence<span style="color:#f92672">&lt;/</span>i<span style="color:#f92672">&gt;).</span>  The user of <span style="color:#66d9ef">this</span>
@@ -293,7 +293,7 @@ removeAll<span style="color:#f92672">()</span>
 <p><code>private static final int MAX_ARRAY_SIZE = Integer.MAX_VALUE - 8;</code>因为一些虚拟机在数组中会保留一些标题字，所以预留一些空间。</p>
 <h2 id="set">Set</h2>
 <p>HashSet继承树</p>
-<p><img src="HashSet%E7%BB%A7%E6%89%BF%E6%A0%91.png" alt="HashSet继承树" title="HashSet继承树"></p>
+<p><img src="../HashSet%E7%BB%A7%E6%89%BF%E6%A0%91.png" alt="HashSet继承树" title="HashSet继承树"></p>
 <p>Set.java</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#f92672">/**</span>
  <span style="color:#f92672">*</span> A collection that contains no duplicate elements<span style="color:#f92672">.</span>  More formally<span style="color:#f92672">,</span> sets
@@ -344,7 +344,7 @@ size<span style="color:#f92672">()</span>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">comparator<span style="color:#f92672">()</span>
 </code></pre></div><h2 id="queue">Queue</h2>
 <p>Queue继承树</p>
-<p><img src="Queue%E7%BB%A7%E6%89%BF%E6%A0%91.png" alt="Queue继承树" title="Queue继承树"></p>
+<p><img src="../Queue%E7%BB%A7%E6%89%BF%E6%A0%91.png" alt="Queue继承树" title="Queue继承树"></p>
 <p>Queue.java</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#f92672">/**</span>
  <span style="color:#f92672">*</span> A collection designed <span style="color:#66d9ef">for</span> holding elements prior to processing<span style="color:#f92672">.</span>
@@ -367,7 +367,7 @@ poll<span style="color:#f92672">()</span>
 peek<span style="color:#f92672">()</span>
 </code></pre></div><h2 id="map">Map</h2>
 <p>HashMap继承树</p>
-<p><img src="HashMap%E7%BB%A7%E6%89%BF%E6%A0%91.png" alt="HashMap继承树" title="HashMap继承树"></p>
+<p><img src="../HashMap%E7%BB%A7%E6%89%BF%E6%A0%91.png" alt="HashMap继承树" title="HashMap继承树"></p>
 <p>Map.java</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#f92672">/**</span>
  <span style="color:#f92672">*</span> An object that maps keys to values<span style="color:#f92672">.</span>  A map cannot contain duplicate keys<span style="color:#f92672">;</span>
